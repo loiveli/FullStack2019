@@ -3,12 +3,21 @@ import ReactDOM from 'react-dom'
 
 const App = () => {
     const course = 'Half Stack -sovelluskehitys'
-    const part1 = 'Reactin perusteet'
-    const exercises1 = 10
-    const part2 = 'Tiedonvälitys propseilla'
-    const exercises2 = 7
-    const part3 = 'Komponenttien tila'
-    const exercises3 = 14
+    const part1 = {
+        name: 'Reactin perusteet',
+        exercises: 10
+    }
+    const part2 = {
+        name: 'Tiedonvälitys propseilla',
+        exercises: 7
+    }
+    const part3 = {
+        name: 'Komponenttien tila',
+        exercises: 14
+    }
+    
+    
+    
 
 
     const Header = (props) => (
@@ -21,16 +30,16 @@ const App = () => {
     const Part = (props) => (
         <>
             <p>
-                {props.name} {props.amount}
+                {props.data.name} {props.data.exercises}
             </p>
         </>
 
     )
     const Content = (props) => (
         <>
-            <Part name={props.part1} amount={props.exercises1} />
-            <Part name={props.part2} amount={props.exercises2} />
-            <Part name={props.part3} amount={props.exercises3} />
+            <Part data={props.part1}  />
+            <Part data={props.part2} />
+            <Part data={props.part3}  />
         </>
 
     )
@@ -44,8 +53,8 @@ const App = () => {
     return (
         <div>
             <Header course={course} />
-            <Content part1={part1} part2={part2} part3={part3} exercises1={exercises1} exercises2={exercises2} exercises3={exercises3} />
-            <Total exercises1={exercises1} exercises2={exercises2} exercises3={exercises3} />
+            <Content part1={part1} part2={part2} part3={part3}  />
+            <Total exercises1={part1.exercises} exercises2={part2.exercises} exercises3={part3.exercises} />
         </div>
     )
 }
