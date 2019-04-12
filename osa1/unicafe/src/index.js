@@ -34,6 +34,7 @@ const Stats = ({bad,neutral,good}) => {
         <Display text="Huono" value={bad} />
         <Display text="Yhteensä" value={bad+good+neutral} />
         <Display text="Yhteensä" value={(good-bad)/(bad+good)} />
+        <Display text="Yhteensä" value={good/(good+bad+neutral)} />
     </>)
 }
 const App = () => {
