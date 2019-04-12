@@ -18,32 +18,34 @@ const App = () => {
         </>
 
     )
-    const Content = (props) => (
+    const Part = (props) => (
         <>
             <p>
-                {props.part1} {props.exercises1}
-            </p>
-            <p>
-                {props.part2} {props.exercises2}
-            </p>
-            <p>
-                {props.part3} {props.exercises3}
+                {props.name} {props.amount}
             </p>
         </>
 
     )
-
-    const Total =(props) =>(
+    const Content = (props) => (
         <>
-        <p>yhteensä {props.exercises1 + props.exercises2 + props.exercises3} tehtävää</p>
+            <Part name={props.part1} amount={props.exercises1} />
+            <Part name={props.part2} amount={props.exercises2} />
+            <Part name={props.part3} amount={props.exercises3} />
+        </>
+
+    )
+
+    const Total = (props) => (
+        <>
+            <p>yhteensä {props.exercises1 + props.exercises2 + props.exercises3} tehtävää</p>
         </>
     )
 
     return (
         <div>
-            <Header course = {course} />
-            <Content part1 = {part1}part2 = {part2}part3 = {part3} exercises1 = {exercises1}exercises2 = {exercises2}exercises3 = {exercises3}/>
-            <Total  exercises1 = {exercises1}exercises2 = {exercises2}exercises3 = {exercises3}/>
+            <Header course={course} />
+            <Content part1={part1} part2={part2} part3={part3} exercises1={exercises1} exercises2={exercises2} exercises3={exercises3} />
+            <Total exercises1={exercises1} exercises2={exercises2} exercises3={exercises3} />
         </div>
     )
 }
