@@ -12,7 +12,7 @@ const Button = (props) => {
 const Display = (props) => {
     return (
         <>
-            <p>{props.text} {props.value}</p>
+            <tr><td>{props.text}</td> <td>{props.value}</td></tr>
         </>
     )
 }
@@ -27,15 +27,25 @@ const Buttons = (props) => {
     )
 }
 const Stats = ({bad,neutral,good}) => {
-    return(
-    <>
-        <Display text="Hyvä" value={good} />
-        <Display text="Neutraali" value={neutral} />
-        <Display text="Huono" value={bad} />
-        <Display text="Yhteensä" value={bad+good+neutral} />
-        <Display text="Keskiarvo" value={(good-bad)/(bad+good)} />
-        <Display text="Postiivisia" value={good/(good+bad+neutral)} />
-    </>)
+    if(bad+good+neutral>0){
+        return(
+            <>
+                <h3>Tilastot</h3>
+                <Display text="Hyvä" value={good} />
+                <Display text="Neutraali" value={neutral} />
+                <Display text="Huono" value={bad} />
+                <Display text="Yhteensä" value={bad+good+neutral} />
+                <Display text="Keskiarvo" value={(good-bad)/(bad+good)} />
+                <Display text="Postiivisia" value={(good/(good+bad+neutral))*100 } />
+            </>)
+    }else{
+        return(
+            <>
+                <h3>Ei vielä tilastoja</h3>
+            </>
+        )
+    }
+    
 }
 const App = () => {
     // tallenna napit omaan tilaansa
@@ -56,7 +66,7 @@ const App = () => {
         <div>
             <h1>Anna palautetta </h1>
             <Buttons goodHandler={goodHandler} neutralHandler={neutralHandler} badHandler={badHandler} />
-            <h3>Tilastot</h3>
+            
             <Stats good={good}neutral={neutral}bad={bad}/>
         </div>
     )
