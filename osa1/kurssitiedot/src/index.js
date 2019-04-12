@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 const App = () => {
-    const course = 'Half Stack -sovelluskehitys'
-    const parts = [{
+    const course = {name:'Half Stack -sovelluskehitys',
+    parts : [{
         name: 'Reactin perusteet',
         exercises: 10
     },
@@ -15,7 +15,7 @@ const App = () => {
         name: 'Komponenttien tila',
         exercises: 14
     }]
-    
+    }
     
     
 
@@ -52,9 +52,9 @@ const App = () => {
 
     return (
         <div>
-            <Header course={course} />
-            <Content osat={parts}  />
-            <Total osat = {parts} />
+            <Header course={course.name} />
+            <Content osat={course.parts}  />
+            <Total osat = {course.parts} />
         </div>
     )
 }
